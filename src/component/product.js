@@ -13,7 +13,7 @@ const Productcard = () => {
     })
     const onMousemove = e => {
 
-        let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        let xAxis = (window.innerWidth / 2 - e.pageX) / 50;
         let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
         setStyleCard({
             ...styleCard,
@@ -112,6 +112,30 @@ const Productcard = () => {
 
                             </div>
                             <div className='purchase' style={styleCard.isHover == '2' ? styleCard.title : null}>
+                                <button >Purchase</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card test2" style={styleCard.isHover == '3' ? styleCard.card : null} id='3' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
+
+
+                        <div className="product">
+                            <div className="circle">                </div>
+                            <img src={shoe} style={styleCard.isHover == '3' ? styleCard.sneaker : null} />
+                        </div>
+                        <div className="info" >
+                            <h1 className="title" style={styleCard.isHover == '3' ? styleCard.title : null} >
+                                Nike
+                        </h1>
+                            <h3 style={styleCard.isHover == '3' ? styleCard.title : null}> asdasdasdasdjfdfdfdfd</h3>
+                            <div className="size" style={styleCard.isHover == '3' ? styleCard.title : null}>
+                                <button >43</button>
+                                <button >44</button>
+                                <button className='active' >46</button>
+                                <button >48</button>
+
+                            </div>
+                            <div className='purchase' style={styleCard.isHover == '3' ? styleCard.title : null}>
                                 <button >Purchase</button>
                             </div>
                         </div>
