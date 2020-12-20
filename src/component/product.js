@@ -9,25 +9,24 @@ const Productcard = () => {
         sneaker: {},
         purchase: {},
         descriptor: {},
-        isHover : false,
+        isHover: null,
     })
     const onMousemove = e => {
-        console.log('====================================');
-        console.log(e.target.id);
-        console.log('====================================');
+
         let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
         let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
         setStyleCard({
             ...styleCard,
             card: {
-                ...styleCard.card, transform: `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`
+                ...styleCard.card, transform: `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`, transition: 'all 0.5s ease'
             }
         });
     }
     const onMouseEnter = e => {
+
         setStyleCard({
             ...styleCard,
-            hover: true,
+            isHover: e.target.id,
             sneaker: {
                 transform: 'translateZ(200px) rotateZ(-45deg)'
             },
@@ -37,7 +36,7 @@ const Productcard = () => {
             , card: {
                 ...styleCard.card, transition: 'none',
                 // transformtransition: 'all 0.5 ease',
-                
+
             }
         });
 
@@ -45,7 +44,7 @@ const Productcard = () => {
     const onMouseleave = e => {
         setStyleCard({
             ...styleCard,
-            hover : false,
+            // isHover: null,
             sneaker: {
                 transform: 'translateZ(0px) rotateZ(0deg)'
 
@@ -58,68 +57,67 @@ const Productcard = () => {
             }
         });
 
-        console.log(styleCard.card);
+
 
     }
 
-
+    // console.log(styleCard.isHover);
 
     return (
         <div className='test1'>
             <div className="container" >
-                <div className="card" id='1'  onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}  style={styleCard ? styleCard.card : null}>
+                <div className="card" style={styleCard.isHover == '1' ? styleCard.card : null} id='1' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
 
 
                     <div className="product">
-                        <div className="circle">                </div>
-                        <img src={shoe} style={styleCard.sneaker} />
+                        <div className="circle"></div>
+                        <img src={shoe} style={styleCard.isHover == '1' ? styleCard.sneaker : null} />
                     </div>
                     <div className="info" >
-                        <h1 className="title" style={styleCard.title} >
+                        <h1 className="title" style={styleCard.isHover == '1' ? styleCard.title : null} >
                             Nike
                         </h1>
-                        <h3 style={styleCard.title}> asdasdasdasdjfdfdfdfd</h3>
-                        <div className="size" style={styleCard.title}>
+                        <h3 style={styleCard.isHover == '1' ? styleCard.title : null}> asdasdasdasdjfdfdfdfd</h3>
+                        <div className="size" style={styleCard.isHover == '1' ? styleCard.title : null}>
                             <button >42</button>
                             <button >44</button>
                             <button className='active' >46</button>
                             <button >48</button>
 
                         </div>
-                        <div className='purchase' style={styleCard.title}>
+                        <div className='purchase' style={styleCard.isHover == '1' ? styleCard.title : null}>
                             <button >Purchase</button>
                         </div>
                     </div>
                 </div>
-                <div className="card" id='2'  onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}  style={styleCard ? styleCard.card : null}>
 
-
-                    <div className="product">
-                        <div className="circle">                </div>
-                        <img src={shoe} style={styleCard.sneaker} />
-                    </div>
-                    <div className="info" >
-                        <h1 className="title" style={styleCard.title} >
-                            Nike
-                        </h1>
-                        <h3 style={styleCard.title}> asdasdasdasdjfdfdfdfd</h3>
-                        <div className="size" style={styleCard.title}>
-                            <button >42</button>
-                            <button >44</button>
-                            <button className='active' >46</button>
-                            <button >48</button>
-
-                        </div>
-                        <div className='purchase' style={styleCard.title}>
-                            <button >Purchase</button>
-                        </div>
-                    </div>
-                </div>
              
+                    <div className="card test2" style={styleCard.isHover == '2' ? styleCard.card : null} id='2' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
 
 
-            </div>
-      
+                        <div className="product">
+                            <div className="circle">                </div>
+                            <img src={shoe} style={styleCard.isHover == '2' ? styleCard.sneaker : null} />
+                        </div>
+                        <div className="info" >
+                            <h1 className="title" style={styleCard.isHover == '2' ? styleCard.title : null} >
+                                Nike
+                        </h1>
+                            <h3 style={styleCard.isHover == '2' ? styleCard.title : null}> asdasdasdasdjfdfdfdfd</h3>
+                            <div className="size" style={styleCard.isHover == '2' ? styleCard.title : null}>
+                                <button >42</button>
+                                <button >44</button>
+                                <button className='active' >46</button>
+                                <button >48</button>
+
+                            </div>
+                            <div className='purchase' style={styleCard.isHover == '2' ? styleCard.title : null}>
+                                <button >Purchase</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
         </div>
     )
 }
