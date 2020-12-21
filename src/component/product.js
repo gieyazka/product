@@ -13,7 +13,7 @@ const Productcard = () => {
     })
     const onMousemove = e => {
 
-        let xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+        let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
         let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
         setStyleCard({
             ...styleCard,
@@ -64,9 +64,9 @@ const Productcard = () => {
     // console.log(styleCard.isHover);
 
     return (
-        <div className='test1'>
-            <div className="container" >
-                <div className="card" style={styleCard.isHover == '1' ? styleCard.card : null} id='1' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
+        <div className='test1'> 
+            <div className="container" id='1' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }} >
+                <div className="card" style={styleCard.isHover == '1' ? styleCard.card : null} >
 
 
                     <div className="product">
@@ -92,7 +92,7 @@ const Productcard = () => {
                 </div>
 
              
-                    <div className="card test2" style={styleCard.isHover == '2' ? styleCard.card : null} id='2' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
+                    {/* <div className="card test2" style={styleCard.isHover == '2' ? styleCard.card : null} id='2' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
 
 
                         <div className="product">
@@ -115,8 +115,8 @@ const Productcard = () => {
                                 <button >Purchase</button>
                             </div>
                         </div>
-                    </div>
-                    <div className="card test2" style={styleCard.isHover == '3' ? styleCard.card : null} id='3' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
+                    </div> */}
+                    {/* <div className="card test2" style={styleCard.isHover == '3' ? styleCard.card : null} id='3' onMouseMove={(e) => { onMousemove(e) }} onMouseLeave={(e) => { onMouseleave(e) }} onMouseEnter={(e) => { onMouseEnter(e) }}>
 
 
                         <div className="product">
@@ -139,7 +139,7 @@ const Productcard = () => {
                                 <button >Purchase</button>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
         </div>
